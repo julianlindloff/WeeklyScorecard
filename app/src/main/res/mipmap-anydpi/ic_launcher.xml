@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- App icon. The picture comes from icon_custom.jpg (cropped & resized into drawable-*dpi). -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_bg" />
+    <foreground android:drawable="@drawable/ic_launcher_custom" />
+</adaptive-icon>
