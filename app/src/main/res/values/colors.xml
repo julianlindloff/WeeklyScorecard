@@ -8,5 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <!-- Behind the app icon (matches the icon's light blue) -->
-    <color name="ic_launcher_bg">#FF79D6DD</color>
+    <color name="ic_launcher_bg">#FFF297A6</color>
 </resources>

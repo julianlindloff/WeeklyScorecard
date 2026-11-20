@@ -69,9 +69,11 @@ fun SettingsScreen(store: ScorecardStore) {
             .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        ScreenHeader("Settings", overline = "Reminder & data")
+        ScreenHeader("Settings", overline = "Reminder, AI & data")
         SectionTitle("Reminder")
         ReminderSection()
+        SectionTitle("AI coach")
+        AiKeySection()
         SectionTitle("Your data")
         DataSection(store)
     }

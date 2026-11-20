@@ -45,6 +45,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    // Official Anthropic SDK, used by the AI coach to talk to Claude.
+    implementation(libs.anthropic.java)
     testImplementation(libs.junit)
     // Android has org.json built in, but plain unit tests on the PC need the real library.
     testImplementation(libs.org.json)

@@ -25,16 +25,18 @@ Each area has a checklist of 9 items.
 - **Week:** check off items for the current week or any past week. A score ring shows your total, and the area with the lowest score is suggested as next week's focus.
 - **History:** every recorded week, with your average, best and latest score and the change from the week before.
 - **Trends:** line charts of your total score and of each area, plus the average per area.
+- **Coach:** chat with Claude (Anthropic's AI) about your recorded weeks: how a week went, what to focus on, patterns over time. Uses your own Claude API key, entered in Settings.
 - **Settings:**
   - **Weekly reminder:** a notification on the day and time you choose (Sunday 19:00 by default).
   - **Backup:** export all weeks to a JSON file, or import a backup. When importing, you can **merge** it with your current weeks or **replace** them.
 - Light and dark mode.
 
-Your data is stored only on your phone. It leaves the phone only when you export it yourself.
+Your data is stored only on your phone. It leaves the phone only when you export it yourself, or when you ask the Coach a question: then your question and all recorded weeks are sent to Anthropic to create the answer. The API key is stored on the phone only, never in this code, and is excluded from phone backups.
 
 ## Tech
 
-- Kotlin and Jetpack Compose (Material 3), with no extra libraries.
+- Kotlin and Jetpack Compose (Material 3).
+- The Coach uses the official Anthropic Java SDK with the `claude-opus-5-5` model and streams replies.
 - Data is saved as a JSON file in the app's private storage.
 - The charts are drawn by the app itself.
 - The reminder uses `AlarmManager` and is set up again after the phone restarts.
@@ -56,7 +58,8 @@ To build and run the unit tests from the command line (Windows):
 
 ```
 app/src/main/java/com/scorecard/weekly/
+├── ai/         Claude coach: chat, prompt with your weeks, API key storage
 ├── data/       checklist, week scoring, storage, backup format
 ├── reminder/   weekly reminder alarm and notification
-└── ui/         screens (Week, History, Trends, Settings), shared components, theme
+└── ui/         screens (Week, History, Trends, Coach, Settings), shared components, theme
 ```

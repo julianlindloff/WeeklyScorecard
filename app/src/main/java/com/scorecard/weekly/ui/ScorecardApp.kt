@@ -32,6 +32,7 @@ enum class Tab(val label: String, @DrawableRes val icon: Int) {
     Week("Week", R.drawable.ic_tab_week),
     History("History", R.drawable.ic_tab_history),
     Trends("Trends", R.drawable.ic_tab_trends),
+    Coach("Coach", R.drawable.ic_tab_coach),
     Settings("Settings", R.drawable.ic_tab_settings),
 }
 
@@ -54,7 +55,7 @@ fun ScorecardApp(store: ScorecardStore) {
                         selected = tab == t,
                         onClick = { tab = t },
                         icon = { Icon(painterResource(t.icon), contentDescription = null) },
-                        label = { Text(t.label) },
+                        label = { Text(t.label, maxLines = 1) },
                         colors = NavigationBarItemDefaults.colors(
                             selectedIconColor = MaterialTheme.colorScheme.primary,
                             selectedTextColor = MaterialTheme.colorScheme.primary,
@@ -86,6 +87,7 @@ fun ScorecardApp(store: ScorecardStore) {
                         },
                     )
                     Tab.Trends -> TrendsScreen(entries = store.weeks.values.sortedBy { it.weekStart })
+                    Tab.Coach -> CoachScreen(store, outerPadding = padding, onOpenSettings = { tab = Tab.Settings })
                     Tab.Settings -> SettingsScreen(store)
                 }
             }

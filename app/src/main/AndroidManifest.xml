@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Talk to Claude for the AI coach -->
+    <uses-permission android:name="android.permission.INTERNET" />
     <!-- Show the weekly reminder notification -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Re-plan the reminder after the phone restarts -->
